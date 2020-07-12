@@ -17,6 +17,7 @@ function getS3D(fn, cb) {
 	});
 }
 
+
 function viewFile(s3d, fn) {
 	var ext = fn.split('.').pop().toLowerCase();
 	if(fn == '$') {
@@ -25,10 +26,12 @@ function viewFile(s3d, fn) {
 
 	$('#viewer').empty();
 
-	if(fileHandlers[ext] !== undefined)
+	if(fileHandlers[ext] !== undefined){
 		fileHandlers[ext](s3d.files[fn], s3d.files);
-	else
-		showHex(s3d.files[fn]);
+	}
+	else{
+	    showHex(s3d.files[fn]);
+	}
 
 	$('#subfileselector,#tlfileselector').hide();
 	$('#viewer').show();
